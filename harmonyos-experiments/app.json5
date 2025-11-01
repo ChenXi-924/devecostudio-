@@ -1,0 +1,14 @@
+{
+  "app": {
+    "bundleName": "com.example.harmonyos.experiments",
+    "vendor": "example",
+    "versionCode": 1000000,
+    "versionName": "1.0.0",
+    "icon": "$media:app_icon",
+    "label": "$string:app_name",
+    "description": "HarmonyOS实验代码示例应用",
+    "minCompatibleVersionCode": 1000000,
+    "distributedNotificationEnabled": true,
+    "targetAPIVersion": 10
+  }
+}
