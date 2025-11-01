@@ -39,7 +39,8 @@ struct NetworkDemo {
       )
 
       if (response.responseCode === 200) {
-        this.responseData = `请求成功！\n\n响应代码: ${response.responseCode}\n\n响应数据:\n${JSON.stringify(JSON.parse(response.result.toString()), null, 2)}`
+        let parsedData = JSON.parse(response.result.toString())
+        this.responseData = `请求成功！\n\n响应代码: ${response.responseCode}\n\n响应数据:\n${JSON.stringify(parsedData, null, 2)}`
       } else {
         this.responseData = `请求失败\n响应代码: ${response.responseCode}`
       }
@@ -81,7 +82,8 @@ struct NetworkDemo {
       )
 
       if (response.responseCode === 201) {
-        this.responseData = `POST 请求成功！\n\n响应代码: ${response.responseCode}\n\n发送的数据:\n${JSON.stringify(postData, null, 2)}\n\n响应数据:\n${JSON.stringify(JSON.parse(response.result.toString()), null, 2)}`
+        let parsedData = JSON.parse(response.result.toString())
+        this.responseData = `POST 请求成功！\n\n响应代码: ${response.responseCode}\n\n发送的数据:\n${JSON.stringify(postData, null, 2)}\n\n响应数据:\n${JSON.stringify(parsedData, null, 2)}`
       } else {
         this.responseData = `POST 请求失败\n响应代码: ${response.responseCode}`
       }

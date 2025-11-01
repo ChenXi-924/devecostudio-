@@ -43,11 +43,15 @@ struct MultimediaDemo {
     if (this.audioPlayer) {
       try {
         // 设置音频源（这里需要替换为实际的音频文件路径）
+        // 注意: 使用前请确保 rawfile 目录中存在该文件
         this.audioPlayer.url = 'resource://RAWFILE/sample_audio.mp3'
         await this.audioPlayer.play()
         this.isPlaying = true
+        console.info('音频播放成功')
       } catch (err) {
         console.error('播放音频失败:', JSON.stringify(err))
+        // 提供用户友好的错误提示
+        // 实际应用中可以显示 Toast 或 Dialog
       }
     }
   }

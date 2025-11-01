@@ -19,31 +19,42 @@ struct SensorDemo {
 
   // 开始监听传感器
   startSensors() {
+    // 监听加速度传感器
     try {
-      // 监听加速度传感器
       sensor.on(sensor.SensorId.ACCELEROMETER, (data: sensor.AccelerometerResponse) => {
         this.accelerometerX = data.x
         this.accelerometerY = data.y
         this.accelerometerZ = data.z
       }, { interval: 100000000 }) // 100ms
+      console.info('加速度传感器监听已启动')
+    } catch (err) {
+      console.error('启动加速度传感器失败:', JSON.stringify(err))
+    }
 
-      // 监听陀螺仪传感器
+    // 监听陀螺仪传感器
+    try {
       sensor.on(sensor.SensorId.GYROSCOPE, (data: sensor.GyroscopeResponse) => {
         this.gyroscopeX = data.x
         this.gyroscopeY = data.y
         this.gyroscopeZ = data.z
       }, { interval: 100000000 })
+      console.info('陀螺仪传感器监听已启动')
+    } catch (err) {
+      console.error('启动陀螺仪传感器失败:', JSON.stringify(err))
+    }
 
-      // 监听光线传感器
+    // 监听光线传感器
+    try {
       sensor.on(sensor.SensorId.AMBIENT_LIGHT, (data: sensor.LightResponse) => {
         this.lightIntensity = data.intensity
       }, { interval: 100000000 })
-
-      this.isSensorActive = true
-      console.info('传感器监听已启动')
+      console.info('光线传感器监听已启动')
     } catch (err) {
-      console.error('启动传感器失败:', JSON.stringify(err))
+      console.error('启动光线传感器失败:', JSON.stringify(err))
     }
+
+    this.isSensorActive = true
+    console.info('传感器监听启动完成')
   }
 
   // 停止监听传感器

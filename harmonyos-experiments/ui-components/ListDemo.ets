@@ -31,7 +31,7 @@ struct ListDemo {
 
       // 添加新项目
       Row({ space: 10 }) {
-        TextInput({ placeholder: '添加新任务...' })
+        TextInput({ placeholder: '添加新任务...', text: this.newItemTitle })
           .layoutWeight(1)
           .onChange((value: string) => {
             this.newItemTitle = value
